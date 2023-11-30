@@ -5,10 +5,24 @@ import os
 
 
 def save_and_close_plot(figure, file_path):
+    """
+    Save the current figure and close it.
+
+    Args:
+        figure: The Matplotlib figure to save.
+        file_path (str): The file path to save the figure.
+    """
     figure.savefig(file_path)
     plt.close()
 
 def plot_rating_distribution(rating_df, output_folder):
+    """
+    Plot the distribution of ratings and save the plot.
+
+    Args:
+        rating_df (pd.DataFrame): The DataFrame containing rating data.
+        output_folder (str): The folder where the plot will be saved.
+    """
     plt.figure(figsize=(10, 6))
     sns.countplot(x='rating', data=rating_df)
     plt.title('Distribution of Ratings')
@@ -19,6 +33,13 @@ def plot_rating_distribution(rating_df, output_folder):
     print(f"Saved: {file_path}")
 
 def plot_age_distribution(user_df, output_folder):
+    """
+    Plot the age distribution of users and save the plot.
+
+    Args:
+        user_df (pd.DataFrame): The DataFrame containing user data.
+        output_folder (str): The folder where the plot will be saved.
+    """
     plt.figure(figsize=(10, 6))
     sns.histplot(user_df['age'], bins=30, kde=True)
     plt.title('Age Distribution of Users')
@@ -29,6 +50,14 @@ def plot_age_distribution(user_df, output_folder):
     print(f"Saved: {file_path}")
 
 def plot_user_movie_heatmap(rating_df, top_users, output_folder):
+    """
+    Plot the user-movie ratings heatmap for the top users and save the plot.
+
+    Args:
+        rating_df (pd.DataFrame): The DataFrame containing rating data.
+        top_users (list): The list of top users.
+        output_folder (str): The folder where the plot will be saved.
+    """
     top_users = sorted(top_users)[:20]
     filtered_rating_df = rating_df[rating_df['userId'].isin(top_users)]
     plt.figure(figsize=(12, 8))
@@ -40,6 +69,13 @@ def plot_user_movie_heatmap(rating_df, top_users, output_folder):
     print(f"Saved: {file_path}")
 
 def plot_num_ratings_per_user(rating_df, output_folder):
+    """
+    Plot the number of ratings per user and save the plot.
+
+    Args:
+        rating_df (pd.DataFrame): The DataFrame containing rating data.
+        output_folder (str): The folder where the plot will be saved.
+    """
     ratings_per_user = rating_df['userId'].value_counts()
     plt.figure(figsize=(12, 6))
     sns.histplot(ratings_per_user, bins=50, kde=False)
@@ -51,6 +87,13 @@ def plot_num_ratings_per_user(rating_df, output_folder):
     print(f"Saved: {file_path}")
 
 def plot_top_movie_genres(movie_df, output_folder):
+    """
+    Plot the distribution of top movie genres and save the plot.
+
+    Args:
+        movie_df (pd.DataFrame): The DataFrame containing movie data.
+        output_folder (str): The folder where the plot will be saved.
+    """
     genres = movie_df.columns[5:]
     genres_count = movie_df[genres].sum().sort_values(ascending=False)
     plt.figure(figsize=(12, 8))
@@ -63,7 +106,9 @@ def plot_top_movie_genres(movie_df, output_folder):
     print(f"Saved: {file_path}")
 
 def main():
-    # Загрузка данных
+    """
+    Main function to generate and save various plots based on rating, user, and movie data.
+    """
     rating_df = pd.read_csv("../data/raw/rating.csv")
     user_df = pd.read_csv("../data/raw/users.csv")
     movie_cols = ["movieId", "title", "release_date", "video_release_date", "IMDB_URL", "unknown", "Action",
@@ -73,7 +118,6 @@ def main():
 
     output_folder = "../report/figures"
 
-    # Графики
     plot_rating_distribution(rating_df, output_folder)
     plot_age_distribution(user_df, output_folder)
     plot_user_movie_heatmap(rating_df, rating_df['userId'].unique(), output_folder)
