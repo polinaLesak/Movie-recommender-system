@@ -1,0 +1,11 @@
+title,prediction,movieId,genres,userId,rating
+L.A. Confidential (1997),4.0910306,302,Crime|Film-Noir|Mystery|Thriller,758,5
+Star Wars (1977),4.058847,50,Action|Adventure|Romance|Sci-Fi|War,758,4
+Fargo (1996),4.0530066,100,Crime|Drama|Thriller,757,3
+Citizen Kane (1941),4.0397263,134,Drama,758,5
+Wallace & Gromit: The Best of Aardman Animation (1996),4.024373,114,Animation,727,5
+"Wrong Trousers, The (1993)",3.930136,169,Animation|Comedy,727,5
+Taxi Driver (1976),3.8862581,23,Drama|Thriller,774,3
+Hard Eight (1996),3.882348,1143,Crime|Thriller,758,5
+Titanic (1997),3.8753858,313,Action|Drama|Romance,771,3
+"Godfather, The (1972)",3.865378,127,Action|Crime|Drama,758,5
