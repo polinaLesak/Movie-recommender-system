@@ -61,7 +61,7 @@ if __name__ == "__main__":
     user_id_to_find = int(sys.argv[1])
     num_similar_users = int(sys.argv[2])
     similar_users = get_similar_users(knn_alg, df, user_id_to_find, num_similar_users)
-    file_path = f"../data/similar_users_to_{user_id_to_find}.json"
+    file_path = f"../data/users/similar_users_to_{user_id_to_find}.json"
     save_similar_users(similar_users, file_path)
 
     print(f"Similar users saved to {file_path}")
