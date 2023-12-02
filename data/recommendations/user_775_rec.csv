@@ -1,0 +1,6 @@
+title,prediction,movieId,genres,userId,rating
+Star Wars (1977),4.334508,50,Action|Adventure|Romance|Sci-Fi|War,852,5
+"Empire Strikes Back, The (1980)",4.328842,172,Action|Adventure|Drama|Romance|Sci-Fi|War,766,3
+"Princess Bride, The (1987)",4.2975836,173,Action|Adventure|Comedy|Romance,766,4
+Schindler's List (1993),4.272797,318,Drama|War,766,5
+Some Folks Call It a Sling Blade (1993),4.223508,963,Drama|Thriller,788,4
