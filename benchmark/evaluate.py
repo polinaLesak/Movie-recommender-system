@@ -7,6 +7,18 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from keras.models import load_model
 
 def load_and_evaluate_model(model_path, test_data):
+    """
+    Load a pre-trained model, make predictions on test data,
+    calculate evaluation metrics, and log the results.
+
+    Args:
+        model_path (str): The path to the pre-trained model file.
+        test_data (pd.DataFrame): The DataFrame containing test data.
+
+    Returns:
+        None
+    """
+
     # Load the pre-trained model
     model = load_model(model_path)
 
@@ -41,7 +53,6 @@ def load_and_evaluate_model(model_path, test_data):
 if __name__ == "__main__":
     # Specify the path to the pre-trained model and test data
     model_path = '../models/rec_films.h5'
-
 
     # Load the test data
     test_data = pd.read_csv("../benchmark/data/evaluate.csv")
