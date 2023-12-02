@@ -70,6 +70,6 @@ def load_and_evaluate_model(model_path, test_data):
 
 
 if __name__ == "__main__":
-    model_path = '../models/rec_films.h5'
-    test_data = pd.read_csv("../benchmark/data/evaluate.csv")
+    model_path = 'models/rec_films.h5'
+    test_data = pd.read_csv("benchmark/data/evaluate.csv")
     load_and_evaluate_model(model_path, test_data)

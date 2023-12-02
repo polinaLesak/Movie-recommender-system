@@ -13,7 +13,7 @@ def run_similarity_script(user_id, num_similar_users):
            user_id (int): The user ID for whom to find similar users.
            num_similar_users (int): The number of similar users to find.
        """
-    script_path = "../src/sim_users.py"
+    script_path = "src/sim_users.py"
     subprocess.run(["python", script_path, str(user_id), str(num_similar_users)])
     print(f"Similarity script executed for user {user_id}")
 
@@ -24,7 +24,7 @@ def load_recommendation_model():
     Returns:
         The loaded recommendation model.
     """
-    rec_model = load_model('../models/rec_films.h5')
+    rec_model = load_model('models/rec_films.h5')
     print("Recommendation model loaded")
     return rec_model
 
@@ -36,8 +36,8 @@ def load_and_process_data():
         ratings_df (pd.DataFrame): The preprocessed DataFrame containing rating data.
         movie_df (pd.DataFrame): The DataFrame containing movie data.
     """
-    ratings_df = pd.read_csv("../data/raw/rating.csv")
-    movie_df = pd.read_csv("../data/raw/movies.csv")
+    ratings_df = pd.read_csv("data/raw/rating.csv")
+    movie_df = pd.read_csv("data/raw/movies.csv")
     print("Data loaded and processed")
     return ratings_df, movie_df
 
@@ -57,7 +57,7 @@ def generate_recommendations(rec_model, client_id, num_films, ratings_df, movie_
     """
     movie_watched = ratings_df[ratings_df['userId'] == client_id]['movieId'].values
 
-    json_file_path = f'../data/users/similar_users_to_{client_id}.json'
+    json_file_path = f'data/users/similar_users_to_{client_id}.json'
 
     with open(json_file_path, 'r') as file:
         similar_users_data = json.load(file)
@@ -98,7 +98,7 @@ def save_recommendations(recommendations, user_id):
         recommendations (pd.DataFrame): The DataFrame containing recommendations.
         user_id (int): The user ID for whom recommendations were generated.
     """
-    output_csv_path = f"../data/recommendations/user_{user_id}_rec.csv"
+    output_csv_path = f"data/recommendations/user_{user_id}_rec.csv"
     recommendations.to_csv(output_csv_path, index=False)
     print(f"Recommendations for user {user_id} saved to {output_csv_path}")
 

@@ -11,7 +11,7 @@ def load_knn_alg():
     Returns:
         The loaded KNN model.
     """
-    file_path = '../models/similar_users_model.pkl'
+    file_path = 'models/similar_users_model.pkl'
     print(f"Loading KNN model from {file_path}")
     with open(file_path, 'rb') as model_file:
         knn_alg = pickle.load(model_file)
@@ -56,12 +56,12 @@ def save_similar_users(similar_users, file_path):
 if __name__ == "__main__":
     # Load your data
     print("Loading data...")
-    df = pd.read_csv("../data/raw/preprocessed.csv", index_col='user_id')
+    df = pd.read_csv("data/raw/preprocessed.csv", index_col='user_id')
     knn_alg = load_knn_alg()
     user_id_to_find = int(sys.argv[1])
     num_similar_users = int(sys.argv[2])
     similar_users = get_similar_users(knn_alg, df, user_id_to_find, num_similar_users)
-    file_path = f"../data/users/similar_users_to_{user_id_to_find}.json"
+    file_path = f"data/users/similar_users_to_{user_id_to_find}.json"
     save_similar_users(similar_users, file_path)
 
     print(f"Similar users saved to {file_path}")
