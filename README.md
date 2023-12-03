@@ -8,7 +8,7 @@ Polina Lesak, p.lesak@innopolis.university, BS21-DS-01(exchange student)
 The repository contains code for movie recommender system. A detailed report on the algorithms can be found in the reports/Final_report.pdf
 
 The idea:
-1. Using cousin similarity find "similar" users (notebooks/2-knn-user-similarity)
+1. Using cosine similarity find "similar" users (notebooks/2-knn-user-similarity)
 2. Predict recommendations to the user using the NCF model based on movies that were watched by "similar" users(notebooks/3-ncf-recommender)
 
 ## Main processes
