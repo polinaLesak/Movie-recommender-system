@@ -9,7 +9,7 @@ The repository contains code for movie recommender system. A detailed report on 
 
 The idea:
 1. Using cousin similarity find "similar" users (notebooks/2-knn-user-similarity)
-2. Predict recommendations to the user using the NCF model based on movies that were watched by "similar" users(notebooks/3-nfc-recommender)
+2. Predict recommendations to the user using the NCF model based on movies that were watched by "similar" users(notebooks/3-ncf-recommender)
 
 ## Main processes
 
